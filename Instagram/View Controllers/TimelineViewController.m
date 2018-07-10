@@ -19,6 +19,8 @@
 
 @property (strong, nonatomic) NSMutableArray *posts;
 
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
 @end
 
 @implementation TimelineViewController
@@ -29,8 +31,14 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
+    //setup refresh control
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
     //initialize
     self.posts = [NSMutableArray new];
+    
     //load posts
     [self loadPosts];
     
@@ -63,6 +71,7 @@
         if (posts){
             for (Post *post in posts) [self.posts addObject:post];
             [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
         }
         else NSLog(@"%@", [error localizedDescription]);
     }];

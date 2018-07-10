@@ -5,14 +5,14 @@
 //  Created by Daniel Shiferaw on 7/9/18.
 //  Copyright © 2018 Daniel Shiferaw. All rights reserved.
 //
-
+#import <UIKit/UIKit.h>
 #import "CameraRollViewController.h"
 #import "Post.h"
+#import <ParseUI.h>
 
 @interface CameraRollViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
-
+@property (weak, nonatomic) IBOutlet PFImageView *selectedImageView;
 @property (weak, nonatomic) IBOutlet UITextView *captionTextField;
 
 @end
@@ -25,6 +25,8 @@
     //setup gesture
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(setupView)];
     [self.view addGestureRecognizer:gestureRecognizer];
+    
+   
 }
 
 - (void)didReceiveMemoryWarning {

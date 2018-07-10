@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import <ParseUI.h>
 
 @interface PhotoCell : UITableViewCell
 
@@ -15,7 +16,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *username;
 
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
+@property (weak, nonatomic) IBOutlet PFImageView *postImage;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *views_count;
 

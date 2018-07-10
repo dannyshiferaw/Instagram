@@ -8,6 +8,7 @@
 
 #import "PhotoCell.h"
 #import "Post.h"
+#import <ParseUI.h>
 @implementation PhotoCell
 
 - (void)awakeFromNib {
@@ -21,9 +22,9 @@
 }
 
 -(void)configureCell: (Post *) post {
-    self.profileImage.image = post.image;
-    self.username.text = post.userId;
-    self.caption.text = post.caption;
+    self.postImage.file = post[@"image"];
+    [self.postImage loadInBackground];
+    self.caption.text = post[@"caption"];
 }
 
 @end
