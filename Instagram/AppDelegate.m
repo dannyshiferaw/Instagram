@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <Parse.h>
+#import <PFUser.h>
+#import "TimelineViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,16 +19,24 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    
+    //config Parse
     ParseClientConfiguration *config = [ParseClientConfiguration   configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
-        configuration.applicationId = @"codepathInstagram";
-        configuration.clientKey = @"codepathInstagramMaster";
-        configuration.server = @"http://codepathfbinstagram.herokuapp.com/parse";
+        configuration.applicationId = @"danielsinsta";
+        configuration.clientKey = @"danielinsta";
+        configuration.server = @"https://danielsinsta.herokuapp.com/parse";
     }];
     
     [Parse initializeWithConfiguration:config];
+    
+    //persist user
+    //if a signed in user exists, skip to timeline view controller
+    if (PFUser.currentUser) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController *tabbar = [storyboard instantiateViewControllerWithIdentifier:@"landingTabbar"];
+        self.window.rootViewController = tabbar;
+    }
+
     
     return YES;
 }
