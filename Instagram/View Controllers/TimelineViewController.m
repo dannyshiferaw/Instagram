@@ -7,6 +7,7 @@
 //
 
 #import "TimelineViewController.h"
+#import "DetailViewController.h"
 #import "PhotoCell.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
@@ -33,8 +34,11 @@
     
     //setup refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
-    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    [self.refreshControl addTarget:self action:@selector(loadPosts:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview: self.refreshControl atIndex:0];
+    
+    //setup gesture
+    
     
     //initialize
     self.posts = [NSMutableArray new];
@@ -85,14 +89,19 @@
     appDelegate.window.rootViewController = loginViewController;
 }
 
-/*
-#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+   
+    if ([[segue identifier] isEqualToString:@"toDetailViewController"]) {
+        PhotoCell *tappedCell = sender;
+        DetailViewController *detailViewController = [segue destinationViewController];
+        NSIndexPath *index = [self.tableView indexPathForCell:tappedCell];
+        detailViewController.post = self.posts[index.row];
+    }
 }
-*/
+
 
 @end

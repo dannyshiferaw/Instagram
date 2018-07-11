@@ -23,6 +23,7 @@
 		C56B10EE20F478F100AFF413 /* CameraRollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56B10ED20F478F100AFF413 /* CameraRollViewController.m */; };
 		C56B10F120F482D000AFF413 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C56B10F020F482D000AFF413 /* PhotoCell.m */; };
 		C56B10F420F533A400AFF413 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = C56B10F320F533A400AFF413 /* Post.m */; };
+		C56B10F720F568DE00AFF413 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C56B10F620F568DE00AFF413 /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,8 @@
 		C56B10F020F482D000AFF413 /* PhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
 		C56B10F220F533A400AFF413 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		C56B10F320F533A400AFF413 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		C56B10F520F568DE00AFF413 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		C56B10F620F568DE00AFF413 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		C9A8F97E006F0C9B9D7548B1 /* Pods-Instagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.debug.xcconfig"; sourceTree = "<group>"; };
 		F8BEC1F1A2405B6EFC77ADA6 /* Pods-InstagramTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramTests/Pods-InstagramTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FABCDC9523B3B4DC05DFBA43 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 				C56B10EA20F43A8800AFF413 /* TimelineViewController.m */,
 				C56B10EC20F478F100AFF413 /* CameraRollViewController.h */,
 				C56B10ED20F478F100AFF413 /* CameraRollViewController.m */,
+				C56B10F520F568DE00AFF413 /* DetailViewController.h */,
+				C56B10F620F568DE00AFF413 /* DetailViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 			files = (
 				C56B10B620F4292000AFF413 /* LoginViewController.m in Sources */,
 				C56B10C120F4292100AFF413 /* main.m in Sources */,
+				C56B10F720F568DE00AFF413 /* DetailViewController.m in Sources */,
 				C56B10E820F436F700AFF413 /* SignupViewController.m in Sources */,
 				C56B10F120F482D000AFF413 /* PhotoCell.m in Sources */,
 				C56B10B320F4292000AFF413 /* AppDelegate.m in Sources */,

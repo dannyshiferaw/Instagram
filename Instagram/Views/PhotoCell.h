@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "PhotoCell.h"
 #import <ParseUI.h>
+
+
+
 
 @interface PhotoCell : UITableViewCell
 
@@ -25,10 +29,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *comment_count;
 
+@property (strong, nonatomic) Post *post;
+
 
 -(void)configureCell: (Post *) post;
 
-
-
-
 @end
+
+

@@ -14,6 +14,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -22,6 +23,7 @@
 }
 
 -(void)configureCell: (Post *) post {
+    self.post = post;
     self.postImage.file = post[@"image"];
     [self.postImage loadInBackground];
     self.caption.text = post[@"caption"];
