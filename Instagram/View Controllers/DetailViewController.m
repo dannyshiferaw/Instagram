@@ -8,6 +8,8 @@
 
 #import "DetailViewController.h"
 #import <ParseUI.h>
+#import <PFUser.h>
+#import <DateTools.h>
 
 @interface DetailViewController ()
 
@@ -17,16 +19,32 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *comment_count;
 
+@property (weak, nonatomic) IBOutlet UILabel *likes_count;
+
+@property (weak, nonatomic) IBOutlet UILabel *createAt;
+
+
+
 @end
 
 @implementation DetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
     self.photoImage.file = self.post[@"image"];
     [self.photoImage loadInBackground];
     self.caption.text = self.post[@"caption"];
+    
+    //load timestamp
+    self.createAt.text = [[self.post createdAt] shortTimeAgoSinceNow];
+    //load likes count
+    NSString *likes_count = [NSString stringWithFormat:@"%@", [self.post objectForKey:@"likeCount"]];
+    self.likes_count.text = [likes_count stringByAppendingString: @" likes"];
+    //load comment count
+    NSString *comments_count = [NSString stringWithFormat:@"%@", [self.post commentCount]];
+    self.comment_count.text = [NSString stringWithFormat:@"%@%@",comments_count, @" comments"];
 
 }
 

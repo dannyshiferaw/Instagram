@@ -14,13 +14,15 @@
 #import <PFQuery.h>
 #import "Post.h"
 
-@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface TimelineViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *posts;
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+
+@property (assign, nonatomic) BOOL isMoreDataLoading;
 
 @end
 
@@ -37,8 +39,7 @@
     [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview: self.refreshControl atIndex:0];
     
-    //setup gesture
-    
+  
     
     //initialize
     self.posts = [NSMutableArray new];
@@ -75,12 +76,29 @@
     
     [query findObjectsInBackgroundWithBlock:^(NSArray<Post *>*  _Nullable posts, NSError * _Nullable error) {
         if (posts){
+            self.posts = [NSMutableArray new]; //empty
             for (Post *post in posts) [self.posts addObject:post];
             [self.tableView reloadData];
+            self.isMoreDataLoading = NO;
             [self.refreshControl endRefreshing];
         }
         else NSLog(@"%@", [error localizedDescription]);
     }];
+}
+
+//infinite loading
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            [self loadPosts];
+        }
+    }
 }
 
 //logout
