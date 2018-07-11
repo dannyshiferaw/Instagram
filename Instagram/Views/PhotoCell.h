@@ -22,17 +22,19 @@
 
 @property (weak, nonatomic) IBOutlet PFImageView *postImage;
 
-
 @property (weak, nonatomic) IBOutlet UILabel *views_count;
 
 @property (weak, nonatomic) IBOutlet UILabel *caption;
 
+@property (weak, nonatomic) IBOutlet UILabel *usernameForCaption;
+
 @property (weak, nonatomic) IBOutlet UILabel *comment_count;
+
+@property (weak, nonatomic) IBOutlet UILabel *createAt;
 
 @property (strong, nonatomic) Post *post;
 
-
--(void)configureCell: (Post *) post;
+-(void)configure;
 
 @end
 

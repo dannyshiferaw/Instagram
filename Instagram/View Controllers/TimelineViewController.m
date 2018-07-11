@@ -31,10 +31,10 @@
     //setup
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+
     //setup refresh control
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(loadPosts:) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview: self.refreshControl atIndex:0];
     
     //setup gesture
@@ -57,7 +57,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PhotoCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PhotoCell" forIndexPath:indexPath];
     Post *post = self.posts[indexPath.row];
-    [cell configureCell:post];
+    [cell setPost:post];
+    [cell configure];
     return cell; 
 }
 
@@ -68,7 +69,8 @@
 //load posts
 -(void)loadPosts {
     PFQuery *query = [PFQuery queryWithClassName:[Post parseClassName]];
-    [query orderByAscending:@"author"];
+    [query includeKey:@"author"];
+    [query orderByDescending:@"createdAt"];
     query.limit = 20;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray<Post *>*  _Nullable posts, NSError * _Nullable error) {

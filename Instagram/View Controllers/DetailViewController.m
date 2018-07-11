@@ -26,7 +26,8 @@
     // Do any additional setup after loading the view.
     self.photoImage.file = self.post[@"image"];
     [self.photoImage loadInBackground];
-    self.caption = self.post[@"caption"];
+    self.caption.text = self.post[@"caption"];
+
 }
 
 - (void)didReceiveMemoryWarning {
