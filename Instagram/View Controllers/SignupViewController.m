@@ -7,7 +7,6 @@
 //
 
 #import "SignupViewController.h"
-#import <PFUser.h>
 #import "User.h"
 
 @interface SignupViewController ()

@@ -16,8 +16,6 @@
 
 @property (weak, nonatomic) IBOutlet PFImageView *profilePic;
 
-
-
 @end
 
 @implementation ProfileUploadViewController
@@ -53,7 +51,7 @@
     
     UIImage *resizedImage = [self resizeImage:originalImage withSize:CGSizeMake(239, 180)];
     
-    //show image
+    //set image
     self.profilePic.image = resizedImage;
     //dismiss
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -67,7 +65,7 @@
     User *user = [User currentUser];
     UIImage *image = self.profilePic.image;
     if (image) {
-        user.profilePicture = image; 
+        user.profilePicture = [Post getPFFileFromImage:image];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }

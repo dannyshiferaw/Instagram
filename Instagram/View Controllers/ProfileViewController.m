@@ -34,14 +34,19 @@
     self.postCollectionView.delegate = self;
     self.postCollectionView.dataSource = self;
     
-    [self loadUserPosts];
-    [self configure];
+//    [self loadUserPosts];
+//    [self configure];
 }
 
 -(void)configure {
+    //loads the user profile picture if there is one.
     User *user = [User currentUser];
-    self.profile_picture.image = user.profilePicture;
-    [self.profile_picture loadInBackground];
+    PFFile *profile_picture = [user objectForKey:@"profilePicture"];
+    if (profile_picture) {
+        self.profile_picture.file = profile_picture;
+        [self.profile_picture loadInBackground];
+    }
+    //loads number of likes 
     self.likes_count.text = [NSString stringWithFormat:@"%d", self.userPosts.count];
 }
 -(void)viewDidAppear:(BOOL)animated {
@@ -70,7 +75,7 @@
 -(void)loadUserPosts {
     PFQuery *query = [PFQuery queryWithClassName:[Post parseClassName]];
     [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    [query whereKey:@"author" equalTo:[User currentUser]];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray<Post * >* _Nullable userPosts, NSError * _Nullable error) {
         if (userPosts) {

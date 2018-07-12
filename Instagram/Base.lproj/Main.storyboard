@@ -181,7 +181,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="435.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="ZBO-f8-5yV">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="ZBO-f8-5yV" customClass="PFImageView">
                                                     <rect key="frame" x="4" y="8" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="Foo-yz-PtG"/>
@@ -304,7 +304,7 @@
                                             <outlet property="comment_count" destination="1zF-U4-ZnH" id="oP6-xZ-hB4"/>
                                             <outlet property="createAt" destination="aW8-9l-zyd" id="E1G-wP-R5z"/>
                                             <outlet property="postImage" destination="lbf-4w-xYw" id="aod-Gi-d56"/>
-                                            <outlet property="profileImage" destination="ZBO-f8-5yV" id="QfE-m7-4jZ"/>
+                                            <outlet property="profileImage" destination="ZBO-f8-5yV" id="dR6-sq-JGj"/>
                                             <outlet property="username" destination="GRS-0E-mk6" id="3sD-r2-xau"/>
                                             <outlet property="usernameForCaption" destination="D4Y-Fj-1t8" id="qZp-LE-FVe"/>
                                             <outlet property="views_count" destination="YV0-BK-Q8D" id="MJy-06-msi"/>
@@ -565,8 +565,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8ZH-0S-YSw" customClass="PFImageView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ZH-0S-YSw" customClass="PFImageView">
                                 <rect key="frame" x="16" y="64" width="94" height="102"/>
+                                <color key="backgroundColor" red="0.14229994286410974" green="1" blue="0.14706592927649509" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="DKg-YU-cDx"/>
                                     <constraint firstAttribute="width" constant="94" id="r5v-Y5-IJQ"/>

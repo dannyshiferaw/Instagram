@@ -35,11 +35,9 @@
     self.tableView.dataSource = self;
 
     //setup refresh control
-    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl = [UIRefreshControl new];
     [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview: self.refreshControl atIndex:0];
-    
-  
     
     //initialize
     self.posts = [NSMutableArray new];
@@ -47,9 +45,9 @@
     //load posts
     [self loadPosts];
     
-    
 }
 
+//reloads whenever timeline controller appears
 - (void) viewDidAppear:(BOOL)animated {
     [self loadPosts];
 }

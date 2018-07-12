@@ -10,7 +10,8 @@
 #import "Post.h"
 #import <ParseUI.h>
 #import <DateTools.h>
-#import <PFUser.h>
+#import "User.h"
+
 
 @implementation PhotoCell
 
@@ -26,11 +27,16 @@
 }
 
 -(void)configure {
-    //load username
-    PFUser *user = [self.post author];
+    //load username and profile picture
+    User *user = (User *)[self.post author];
     NSString *username = [user username];
     self.username.text = username;
     self.usernameForCaption.text = username;
+    PFFile *profile_picture = [user objectForKey:@"profilePicture"];
+    if (profile_picture) {
+        self.profileImage.file = profile_picture;
+        [self.profileImage loadInBackground];
+    }
     //load post image
     self.postImage.file = [self.post objectForKey:@"image"];
     [self.postImage loadInBackground];

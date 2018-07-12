@@ -61,7 +61,7 @@
 
     UIImage *resizedImage = [self resizeImage:originalImage withSize:CGSizeMake(239, 180)];
     
-    //show image
+    //set image
     self.selectedImageView.image = resizedImage;
     
     //dismiss
@@ -70,18 +70,17 @@
 
 
 - (IBAction)didPostBtnTapped:(id)sender {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES]; //show progress indicator
     [Post postUserImage:self.selectedImageView.image withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (!succeeded)
             NSLog(@"%@", [error localizedDescription]);
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        self.tabBarController.selectedIndex = 0;
+        [MBProgressHUD hideHUDForView:self.view animated:YES]; //hide progress indicator when completed
+        self.tabBarController.selectedIndex = 0;               //show profile view controller
     }];
 }
-
+//resizes image
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
-    
     resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
     resizeImageView.image = image;
     

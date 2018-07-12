@@ -8,9 +8,10 @@
 
 #import "PFUser.h"
 #import <UIKit/UIKit.h>
+#import <PFFile.h>
 
 @interface User : PFUser
 
-@property UIImage *profilePicture; 
+@property PFFile *profilePicture;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import <PFUser.h>
+#import "User.h"
 
 @interface LoginViewController ()
 
@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //setup gesture
-    //setup gesture
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endEditing)];
     [self.view addGestureRecognizer:gestureRecognizer];
 }
@@ -34,6 +33,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+//called whenever the user taps on the screen
 -(void) endEditing {
     [self.view endEditing:YES];
 }
@@ -44,7 +44,7 @@
     NSString *username = self.usernameTextField.text;
     NSString *password = self.passwordTextField.text;
     
-    //check if attributes are empty
+    //check if attributes are empty, and notify the user if so
     if ([username isEqualToString:@""] ||
         [password isEqualToString:@""]) {
         //show alert view controller
@@ -58,7 +58,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     } else {
         //login
-        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
+        [User logInWithUsernameInBackground:username password:password block:^(PFUser * _Nullable user, NSError * _Nullable error) {
             if (error) { //failure
                 //show alert view controller
                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"

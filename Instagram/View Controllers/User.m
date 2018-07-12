@@ -10,6 +10,6 @@
 
 @implementation User
 
-@dynamic profilePicture; 
+@dynamic profilePicture;
 
 @end

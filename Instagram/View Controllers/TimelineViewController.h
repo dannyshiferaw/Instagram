@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 
-@protocol TimelineViewControllerDelegate
-
--(void)didPostTapped:(Post *)post;
-
-@end
 @interface TimelineViewController : UIViewController
 
 @end
