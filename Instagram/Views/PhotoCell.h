@@ -35,6 +35,7 @@
 
 @property (strong, nonatomic) Post *post;
 
+@property (weak, nonatomic) IBOutlet UIButton *likeBtn;
 -(void)configure;
 
 @end

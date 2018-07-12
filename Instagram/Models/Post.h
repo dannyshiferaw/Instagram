@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) PFFile *image;
+@property BOOL is_liked;
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSNumber *commentCount;
 

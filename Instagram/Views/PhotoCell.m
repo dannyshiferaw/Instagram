@@ -51,6 +51,29 @@
     NSString *comments_count = [NSString stringWithFormat:@"%@", [self.post commentCount]];
     self.comment_count.text = [NSString stringWithFormat:@"%@%@",comments_count, @" comments"];
     
+    //toggle button
+    if (self.post.is_liked) self.likeBtn.selected= YES;
+    else self.likeBtn.selected = NO;
 }
+
+-(void)refresh {
+    self.views_count.text = [[NSString stringWithFormat:@"%@", self.post.likeCount] stringByAppendingString:@" likes"];
+}
+
+- (IBAction)didLikeBtnTapped:(id)sender {
+    if (self.post.is_liked) {
+        self.post.is_liked = NO;
+        self.likeBtn.selected = NO;
+        self.post.likeCount = @([self.post.likeCount intValue] - 1);
+    } else {
+        self.post.is_liked = YES;
+        self.likeBtn.selected = YES;
+        self.post.likeCount = @([self.post.likeCount intValue] + 1);
+    }
+    [self.post saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) [self refresh];
+    }];
+}
+
 
 @end

@@ -66,6 +66,7 @@
     UIImage *image = self.profilePic.image;
     if (image) {
         user.profilePicture = [Post getPFFileFromImage:image];
+        [user saveInBackground];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }

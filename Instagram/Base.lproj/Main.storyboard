@@ -226,6 +226,10 @@
                                                         <constraint firstAttribute="height" constant="32" id="mBS-Ad-ag2"/>
                                                     </constraints>
                                                     <state key="normal" image="heart"/>
+                                                    <state key="selected" image="heart-red"/>
+                                                    <connections>
+                                                        <action selector="didLikeBtnTapped:" destination="RJR-NC-jak" eventType="touchUpInside" id="kjK-l6-Lfq"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdE-TM-P1B">
                                                     <rect key="frame" x="48" y="281" width="32" height="32"/>
@@ -303,6 +307,7 @@
                                             <outlet property="caption" destination="Pcu-Dv-b4M" id="OhM-mN-a11"/>
                                             <outlet property="comment_count" destination="1zF-U4-ZnH" id="oP6-xZ-hB4"/>
                                             <outlet property="createAt" destination="aW8-9l-zyd" id="E1G-wP-R5z"/>
+                                            <outlet property="likeBtn" destination="Zrz-a1-e5a" id="XKS-Gk-QaU"/>
                                             <outlet property="postImage" destination="lbf-4w-xYw" id="aod-Gi-d56"/>
                                             <outlet property="profileImage" destination="ZBO-f8-5yV" id="dR6-sq-JGj"/>
                                             <outlet property="username" destination="GRS-0E-mk6" id="3sD-r2-xau"/>
@@ -755,6 +760,7 @@
         <image name="comment" width="32" height="32"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="heart" width="32" height="32"/>
+        <image name="heart-red" width="48" height="48"/>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="profile_tab" width="25" height="25"/>
