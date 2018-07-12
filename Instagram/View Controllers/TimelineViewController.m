@@ -50,6 +50,10 @@
     
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [self loadPosts];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

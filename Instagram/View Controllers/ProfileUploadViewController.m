@@ -1,49 +1,40 @@
 //
-//  CameraRollViewController.m
+//  ProfileUploadViewController.m
 //  Instagram
 //
-//  Created by Daniel Shiferaw on 7/9/18.
+//  Created by Daniel Shiferaw on 7/11/18.
 //  Copyright © 2018 Daniel Shiferaw. All rights reserved.
 //
-#import <UIKit/UIKit.h>
-#import "CameraRollViewController.h"
-#import "Post.h"
+
+#import "ProfileUploadViewController.h"
 #import <ParseUI.h>
-#import <MBProgressHUD.h>
+#import <PFUser.h>
+#import "Post.h"
+#import "User.h"
 
-@interface CameraRollViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ProfileUploadViewController ()<UIImagePickerControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet PFImageView *selectedImageView;
-@property (weak, nonatomic) IBOutlet UITextView *captionTextField;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePic;
+
+
 
 @end
 
-@implementation CameraRollViewController
+@implementation ProfileUploadViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //setup gesture
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(setupView)];
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(presentImagePicker)];
     [self.view addGestureRecognizer:gestureRecognizer];
-    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
--(void)endEditing {
-    [self.view endEditing:YES];
-}
-
--(void)setupView {
+-(void) presentImagePicker {
     //set up image picker, and read from photolibrary
     UIImagePickerController *imagePicker = [UIImagePickerController new];
     imagePicker.delegate = self;
     imagePicker.allowsEditing = YES;
-
+    
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
@@ -55,28 +46,30 @@
     [self presentViewController:imagePicker animated:YES completion:nil];
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    //get the image
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    
     UIImage *resizedImage = [self resizeImage:originalImage withSize:CGSizeMake(239, 180)];
     
     //show image
-    self.selectedImageView.image = resizedImage;
-    
+    self.profilePic.image = resizedImage;
     //dismiss
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-- (IBAction)didPostBtnTapped:(id)sender {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [Post postUserImage:self.selectedImageView.image withCaption:self.captionTextField.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (!succeeded)
-            NSLog(@"%@", [error localizedDescription]);
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        self.tabBarController.selectedIndex = 0;
-    }];
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (IBAction)didUploadTapButton:(id)sender {
+    User *user = [User currentUser];
+    UIImage *image = self.profilePic.image;
+    if (image) {
+        user.profilePicture = image; 
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
@@ -92,8 +85,6 @@
     
     return newImage;
 }
-
-
 
 
 /*

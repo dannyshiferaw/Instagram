@@ -22,7 +22,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    //setup gesture
+    //setup gesture
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endEditing)];
+    [self.view addGestureRecognizer:gestureRecognizer];
 }
 
 
@@ -31,9 +34,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) endEditing {
+    [self.view endEditing:YES];
+}
+
 - (IBAction)didLoginBtnTapped:(id)sender {
-    //initialize
-    PFUser *user = [PFUser user];
     
     //check attributes
     NSString *username = self.usernameTextField.text;

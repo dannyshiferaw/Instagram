@@ -8,6 +8,7 @@
 
 #import "SignupViewController.h"
 #import <PFUser.h>
+#import "User.h"
 
 @interface SignupViewController ()
 
@@ -39,7 +40,7 @@
 
 -(void)registerNewUser {
     //initialize new user
-    PFUser *newUser = [PFUser user];
+    User *newUser = [User user];
     
     //check user inputs
     newUser.email = self.emailTextField.text;

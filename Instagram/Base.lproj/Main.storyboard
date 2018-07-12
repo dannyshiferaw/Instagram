@@ -565,7 +565,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8ZH-0S-YSw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="8ZH-0S-YSw" customClass="PFImageView">
                                 <rect key="frame" x="16" y="64" width="94" height="102"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="102" id="DKg-YU-cDx"/>
@@ -668,6 +668,9 @@
                                     <constraint firstAttribute="height" constant="30" id="jGb-MH-H9g"/>
                                 </constraints>
                                 <state key="normal" title="Edit Profile"/>
+                                <connections>
+                                    <segue destination="2AZ-FW-4CB" kind="presentation" id="fbe-pU-9HU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -698,12 +701,52 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="profile_tab" id="8yP-60-KqD"/>
                     <connections>
+                        <outlet property="likes_count" destination="ggh-Mr-jGl" id="ORF-yk-jUY"/>
                         <outlet property="postCollectionView" destination="56g-je-dr2" id="TsM-v6-0hE"/>
+                        <outlet property="profile_picture" destination="8ZH-0S-YSw" id="lL2-3E-l7L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fcC-yi-94n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2901.5999999999999" y="990.85457271364328"/>
+            <point key="canvasLocation" x="2902" y="1011"/>
+        </scene>
+        <!--Profile Upload View Controller-->
+        <scene sceneID="Lqu-Hv-SPe">
+            <objects>
+                <viewController id="2AZ-FW-4CB" customClass="ProfileUploadViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ejT-iD-tA8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="eDX-Af-haB" customClass="PFImageView">
+                                <rect key="frame" x="71" y="132" width="232" height="375"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bl-Yt-X7R">
+                                <rect key="frame" x="131" y="578" width="113" height="30"/>
+                                <state key="normal" title="Upload"/>
+                                <connections>
+                                    <action selector="didUploadTapButton:" destination="2AZ-FW-4CB" eventType="touchUpInside" id="ODw-Vn-lO1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HKU-ie-2dF" firstAttribute="trailing" secondItem="eDX-Af-haB" secondAttribute="trailing" constant="72" id="2Q3-Ck-oeL"/>
+                            <constraint firstItem="HKU-ie-2dF" firstAttribute="trailing" secondItem="8bl-Yt-X7R" secondAttribute="trailing" constant="131" id="8Wb-TF-kod"/>
+                            <constraint firstItem="8bl-Yt-X7R" firstAttribute="top" secondItem="eDX-Af-haB" secondAttribute="bottom" constant="71" id="8eW-j7-r6P"/>
+                            <constraint firstItem="eDX-Af-haB" firstAttribute="leading" secondItem="HKU-ie-2dF" secondAttribute="leading" constant="71" id="ENr-3G-5qY"/>
+                            <constraint firstItem="eDX-Af-haB" firstAttribute="top" secondItem="HKU-ie-2dF" secondAttribute="top" constant="112" id="LKS-1I-8Cl"/>
+                            <constraint firstItem="8bl-Yt-X7R" firstAttribute="leading" secondItem="HKU-ie-2dF" secondAttribute="leading" constant="131" id="vdy-3b-Db9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HKU-ie-2dF"/>
+                    </view>
+                    <connections>
+                        <outlet property="profilePic" destination="eDX-Af-haB" id="CXO-jD-9jK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aud-Rd-Ype" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3716" y="1010.6446776611695"/>
         </scene>
     </scenes>
     <resources>

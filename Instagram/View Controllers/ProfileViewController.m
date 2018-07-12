@@ -10,12 +10,19 @@
 #import <PFQuery.h>
 #import "Post.h"
 #import "PostCollectionCell.h"
+#import "User.h"
 
 @interface ProfileViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *postCollectionView;
 
 @property (strong, nonatomic) NSMutableArray *userPosts;
+
+@property (weak, nonatomic) IBOutlet PFImageView *profile_picture;
+
+@property (weak, nonatomic) IBOutlet UILabel *likes_count;
+
+
 
 @end
 
@@ -28,6 +35,18 @@
     self.postCollectionView.dataSource = self;
     
     [self loadUserPosts];
+    [self configure];
+}
+
+-(void)configure {
+    User *user = [User currentUser];
+    self.profile_picture.image = user.profilePicture;
+    [self.profile_picture loadInBackground];
+    self.likes_count.text = [NSString stringWithFormat:@"%d", self.userPosts.count];
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [self loadUserPosts];
+    [self configure];
 }
 
 - (void)didReceiveMemoryWarning {
