@@ -24,6 +24,8 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 
+@property (strong, nonatomic) NSMutableArray *posts;
+
 
 @end
 
@@ -35,18 +37,20 @@
     self.postCollectionView.delegate = self;
     self.postCollectionView.dataSource = self;
     
-     [self loadUserPosts];
-     [self configure];
+    if (self.user == nil) {
+        self.user = [User currentUser];
+    }
+    [self loadUserPosts];
+    [self configure];
 }
 
+
 -(void)configure {
-    
     //show UI button border
     self.editProfileButton.layer.borderWidth = 1;
     
     //loads the user profile picture if there is one.
-    User *user = [User currentUser];
-    PFFile *profile_picture = [user objectForKey:@"profilePicture"];
+    PFFile *profile_picture = [self.user objectForKey:@"profilePicture"];
     if (profile_picture) {
         self.profile_picture.file = profile_picture;
         [self.profile_picture loadInBackground];
@@ -82,12 +86,13 @@
 -(void)loadUserPosts {
     PFQuery *query = [PFQuery queryWithClassName:[Post parseClassName]];
     [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo:[User currentUser]];
+    [query whereKey:@"author" equalTo:self.user];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray<Post * >* _Nullable userPosts, NSError * _Nullable error) {
         if (userPosts) {
             self.userPosts = [[NSMutableArray alloc] initWithArray:userPosts];
             [self.postCollectionView reloadData];
+            [self configure];
         }
         else NSLog(@"%@", [error localizedDescription]);
     }];

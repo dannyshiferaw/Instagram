@@ -19,9 +19,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon-60" translatesAutoresizingMaskIntoConstraints="NO" id="EpG-kZ-SYT">
-                                <rect key="frame" x="134" y="98" width="106" height="60"/>
-                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yrQ-YU-2nP">
                                 <rect key="frame" x="16" y="274" width="343" height="36"/>
                                 <nil key="textColor"/>
@@ -51,23 +48,30 @@
                                     <action selector="didSignupBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ndr-5y-f22"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Instagram-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="1pu-TX-o1V">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="217"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="217" id="U0Y-jU-6F2"/>
+                                    <constraint firstAttribute="width" constant="375" id="zSv-Sr-cHN"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EpG-kZ-SYT" secondAttribute="trailing" constant="135" id="Cue-pg-I5L"/>
+                            <constraint firstItem="1pu-TX-o1V" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6d2-DY-GDc"/>
+                            <constraint firstItem="1pu-TX-o1V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9a8-hi-4Bt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bdj-EC-t27" secondAttribute="trailing" constant="16" id="Eli-Tf-83E"/>
                             <constraint firstItem="QVX-wP-16M" firstAttribute="top" secondItem="KKW-RB-vTY" secondAttribute="bottom" constant="44" id="HKP-bx-ccr"/>
                             <constraint firstItem="KKW-RB-vTY" firstAttribute="top" secondItem="yrQ-YU-2nP" secondAttribute="bottom" constant="46" id="INm-dP-Onh"/>
                             <constraint firstItem="QVX-wP-16M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="116" id="Jtt-9j-HmR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yrQ-YU-2nP" secondAttribute="trailing" constant="16" id="Ktj-dQ-X2T"/>
                             <constraint firstItem="KKW-RB-vTY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Q3F-yB-YNn"/>
-                            <constraint firstItem="EpG-kZ-SYT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="134" id="W6t-Ve-iDf"/>
-                            <constraint firstItem="EpG-kZ-SYT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="78" id="XBz-O9-lmH"/>
+                            <constraint firstItem="1pu-TX-o1V" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SM2-7z-45W"/>
+                            <constraint firstItem="yrQ-YU-2nP" firstAttribute="top" secondItem="1pu-TX-o1V" secondAttribute="bottom" constant="57" id="U5w-WJ-cc0"/>
                             <constraint firstItem="Bdj-EC-t27" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="ZZZ-nP-Z02"/>
                             <constraint firstItem="yrQ-YU-2nP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dVr-ZO-QHO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Bdj-EC-t27" secondAttribute="bottom" constant="20" id="pmx-Oy-vYc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QVX-wP-16M" secondAttribute="trailing" constant="116" id="qjI-98-VhZ"/>
-                            <constraint firstItem="yrQ-YU-2nP" firstAttribute="top" secondItem="EpG-kZ-SYT" secondAttribute="bottom" constant="116" id="vyZ-De-xkQ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KKW-RB-vTY" secondAttribute="trailing" constant="16" id="zaI-Np-W0Z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -81,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="500" y="-206"/>
+            <point key="canvasLocation" x="500" y="-206.44677661169416"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="jMZ-UW-TZU">
@@ -155,7 +159,7 @@
                         <outlet property="emailTextField" destination="hxI-Fl-obY" id="3rs-Ol-twQ"/>
                         <outlet property="passwordTextField" destination="bqj-ti-8Hc" id="Spo-5N-4qU"/>
                         <outlet property="usernameTextField" destination="Y8Z-ci-56e" id="cDd-vj-AdY"/>
-                        <segue destination="Sb9-IJ-mW5" kind="show" identifier="fromSingupToTimelineViewController" id="yX4-SL-cH2"/>
+                        <segue destination="Sb9-IJ-mW5" kind="show" identifier="fromSignupToTimelineViewController" id="yX4-SL-cH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMw-J2-nBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -829,6 +833,7 @@
     </scenes>
     <resources>
         <image name="Icon-60" width="60" height="60"/>
+        <image name="Instagram-Logo" width="1920" height="1080"/>
         <image name="comment" width="32" height="32"/>
         <image name="custom-camera" width="26" height="26"/>
         <image name="feed_tab" width="25" height="25"/>
@@ -841,6 +846,6 @@
         <image name="send" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="woN-4j-lEm"/>
+        <segue reference="yX4-SL-cH2"/>
     </inferredMetricsTieBreakers>
 </document>
