@@ -88,11 +88,9 @@
         [Post postUserImage:image withCaption:caption withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if(succeeded) {
                 NSLog(@"%@", @"Successfully posted");
-                //show timeline
-                //self.tabBarController.selectedIndex = 0;
-                [self dismissViewControllerAnimated:YES completion:nil];
             }
         }];
+        self.tabBarController.selectedIndex = 0;
     }
 }
 

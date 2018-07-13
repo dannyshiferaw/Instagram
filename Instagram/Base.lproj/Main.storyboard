@@ -329,14 +329,9 @@
                         <viewLayoutGuide key="safeArea" id="SAM-aQ-JMe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Instagram" id="3SB-Yb-K5b" colorLabel="IBBuiltInLabel-Red">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="fYA-Jg-Odr">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="o1M-oz-Ugk">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="logout" id="LX5-G4-xuV">
                             <connections>
-                                <action selector="didLogoutBtnTapped:" destination="PyE-uM-hgk" id="mtK-hq-7gy"/>
+                                <action selector="didLogoutBtnTapped:" destination="PyE-uM-hgk" id="efj-RM-gNu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -842,6 +837,7 @@
         <image name="heart-red" width="48" height="48"/>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
+        <image name="logout" width="26" height="26"/>
         <image name="profile_tab" width="25" height="25"/>
         <image name="send" width="32" height="32"/>
     </resources>
