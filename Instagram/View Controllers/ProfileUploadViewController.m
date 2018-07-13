@@ -27,6 +27,7 @@
     [self.view addGestureRecognizer:gestureRecognizer];
 }
 
+
 -(void) presentImagePicker {
     //set up image picker, and read from photolibrary
     UIImagePickerController *imagePicker = [UIImagePickerController new];

@@ -34,8 +34,8 @@
     self.postCollectionView.delegate = self;
     self.postCollectionView.dataSource = self;
     
-//    [self loadUserPosts];
-//    [self configure];
+     [self loadUserPosts];
+     [self configure];
 }
 
 -(void)configure {

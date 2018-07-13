@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <PFFile.h>
 
-@interface User : PFUser
+@interface User : PFUser<PFSubclassing>
 
 @property PFFile *profilePicture;
 
