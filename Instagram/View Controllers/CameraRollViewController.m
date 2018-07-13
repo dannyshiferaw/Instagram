@@ -23,6 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //show border
+    self.captionTextField.layer.borderWidth = 1;
+    
     //setup gesture
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(setupView)];
     [self.view addGestureRecognizer:gestureRecognizer];
@@ -92,7 +95,11 @@
     return newImage;
 }
 
-
+//exit controller if cancel button is clcked,
+//go back to timeline
+- (IBAction)didCanceBtnTapped:(id)sender {
+    self.tabBarController.selectedIndex = 0;
+}
 
 
 /*

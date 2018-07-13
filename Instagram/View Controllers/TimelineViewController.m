@@ -39,6 +39,7 @@
     [self.refreshControl addTarget:self action:@selector(loadPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview: self.refreshControl atIndex:0];
     
+    
     //initialize
     self.posts = [NSMutableArray new];
     

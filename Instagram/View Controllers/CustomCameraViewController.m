@@ -26,6 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //show border
+    self.caption.layer.borderWidth = 1; 
+    
     //setup tap gesture
     UITapGestureRecognizer *gRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endEditing)];
     [self.view addGestureRecognizer:gRecognizer];
@@ -52,7 +55,7 @@
     if (self.videoPreviewLayer) {
         self.videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
         self.videoPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
-        [self.view.layer addSublayer:self.videoPreviewLayer];
+        [self.previewView.layer addSublayer:self.videoPreviewLayer];
         [self.session startRunning];
     }
     

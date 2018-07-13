@@ -22,6 +22,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *likes_count;
 
+@property (weak, nonatomic) IBOutlet UIButton *editProfileButton;
 
 
 @end
@@ -39,6 +40,10 @@
 }
 
 -(void)configure {
+    
+    //show UI button border
+    self.editProfileButton.layer.borderWidth = 1;
+    
     //loads the user profile picture if there is one.
     User *user = [User currentUser];
     PFFile *profile_picture = [user objectForKey:@"profilePicture"];
@@ -46,6 +51,8 @@
         self.profile_picture.file = profile_picture;
         [self.profile_picture loadInBackground];
     }
+    //make profile pic round
+    self.profile_picture.layer.cornerRadius = self.profile_picture.frame.size.height / 2; 
     //loads number of likes 
     self.likes_count.text = [NSString stringWithFormat:@"%d", self.userPosts.count];
 }

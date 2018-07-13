@@ -17,7 +17,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    //Initialization code
+    //make profile pic round
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2;
 
 }
 
