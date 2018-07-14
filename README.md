@@ -49,6 +49,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
+#Videos are uploaded as raw MOV files on this repo. 
+
+
 <img src='https://drive.google.com/file/d/1qsHbIKQ9Gya2EhDP7Dvq7Ye6AIY7sS0r/view?usp=sharing' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='https://drive.google.com/file/d/1s-NYoisRIkHu6xyL6pEbC97zlntF68FG/view?usp=sharing' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='https://drive.google.com/file/d/1J-AOYup-LqP-WvcrmiOVkRIjc9qtTGOr/view?usp=sharing' title='Video Walkthrough' width='' alt='Video Walkthrough' />
