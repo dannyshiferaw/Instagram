@@ -1,4 +1,6 @@
 
+
+
 # Project 4 - *Instagram*
 
 **Instagram** is a photo sharing app using Parse as its backend.
@@ -50,6 +52,9 @@ Here's a walkthrough of implemented user stories:
 <img src='part_1.MOV' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='part_2.MOV' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 <img src='part_3.MOV' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+OR
+<img src='https://i.imgur.com/yJLLpD3.mp4' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
