@@ -25,7 +25,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //setup tap gesture
+    UITapGestureRecognizer *gRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(endEditing)];
+    [self.view addGestureRecognizer:gRecognizer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,6 +87,10 @@
             [self presentViewController:alert animated:YES completion:nil];
         }
     }];
+}
+
+-(void)endEditing {
+    [self.view endEditing:YES];
 }
 
 
