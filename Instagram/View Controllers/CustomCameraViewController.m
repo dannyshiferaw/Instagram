@@ -7,6 +7,7 @@
 //
 
 #import "CustomCameraViewController.h"
+#import <RDVKeyboardAvoidingScrollView.h>
 #import "Post.h"
 
 @interface CustomCameraViewController () <AVCapturePhotoCaptureDelegate>
@@ -22,6 +23,7 @@
 @end
 
 @implementation CustomCameraViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -96,6 +98,7 @@
         self.tabBarController.selectedIndex = 0;
     }
 }
+
 
 /*
 #pragma mark - Navigation

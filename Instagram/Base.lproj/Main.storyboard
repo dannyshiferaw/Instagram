@@ -641,17 +641,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="124" height="126"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IB7-Hi-xpj" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="124" height="126"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IB7-Hi-xpj" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="IB7-Hi-xpj" secondAttribute="bottom" id="MPS-Wg-7eL"/>
-                                            <constraint firstAttribute="trailing" secondItem="IB7-Hi-xpj" secondAttribute="trailing" id="at1-e4-2WI"/>
-                                            <constraint firstItem="IB7-Hi-xpj" firstAttribute="leading" secondItem="pu2-7O-57W" secondAttribute="leading" id="gKX-G7-Gq0"/>
-                                            <constraint firstItem="IB7-Hi-xpj" firstAttribute="top" secondItem="pu2-7O-57W" secondAttribute="top" id="umm-T4-PBV"/>
-                                        </constraints>
                                         <connections>
                                             <outlet property="postImage" destination="IB7-Hi-xpj" id="gJb-UO-UA4"/>
                                         </connections>
